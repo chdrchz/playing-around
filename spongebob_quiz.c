@@ -29,6 +29,7 @@ int main(void)
 	int numberOfQuestions = sizeof(questions)/sizeof(questions[0]);
 	
 	char guess;
+	
 	int score;
 
 	printf("Are you a TRUE Spongebob stan? FIND OUT NOW!!!!\n");
@@ -39,6 +40,8 @@ int main(void)
 		printf("%s\n", questions[i]);
 		printf("~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~\n");
 
+		guess = toupper(guess);
+
 		for (int j = (i * 4); j < (i * 4) + 4; j++)
 		{
 			printf("%s\n", options[j]);
@@ -48,9 +51,6 @@ int main(void)
 		printf("Guess: ");
 		scanf("%c", &guess);
 		scanf("%c"); // clear character from input buffer
-
-		guess = toupper(guess);
-
 
 		if (guess == answers[i])
 		{
@@ -68,19 +68,23 @@ int main(void)
 	
 	if (score <= 3)
 	{
-		printf("Honestly - not your best performance!\n");
+		printf("~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~\n");
+		printf("Honestly - not your best performance! Score: %d\n", score);
 	}
 	else if (score > 3 && score <= 6)
 	{
-		printf("You've watched a few episodes, I'll give you that!\n");
+		printf("~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~\n");
+		printf("Okay, you've watched a few episodes! Score: %d\n", score);
 	}
 	else if (score > 6 && score <= 9)
 	{
-		printf("You're definitely a pro, but not yet a STAN!!\n");
+		printf("~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~\n");
+		printf("Definitely a pro, but not yet a STAN! Score: %d\n", score);
 	}
 	else 
 	{
-		printf("You're a STAN!! Congratulations!\n");	
+		printf("~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~\n");
+		printf("You're a STAN!! Congratulations! Score: %d\n", score);	
 	}
 	
 	char response;
@@ -90,21 +94,25 @@ int main(void)
 	response = 'N';
 	response = 'n';
 
-	while (score == 10) // until loop in c - the ! stops the while loop from continuing to the next iteration 
+	while (score == 10) // tells the program to continue to the next set of questions or not, depending on user input 
 	{
+		printf("~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~\n");
 		printf("Do you want to test your luck?\n");
 		printf("Y/N: \n");
 		scanf("%c", &response);
 			if (response == 'y' || response == 'Y')
 			{
+				printf("~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~\n");
 				printf("Good luck!!\n");
 				break;
 			}
-			else 
+			else if (response == 'n' || response == 'N')			
 			{
+				printf("~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~\n");
 				printf("Thanks for playing!!");
+				break;
 			}
 	}
-
+	
 	return (0);
 }
