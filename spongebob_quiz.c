@@ -30,7 +30,6 @@ int main(void)
 	
 	char guess;
 	int score;
-	char response;
 
 	printf("Are you a TRUE Spongebob stan? FIND OUT NOW!!!!\n");
 
@@ -83,23 +82,28 @@ int main(void)
 	{
 		printf("You're a STAN!! Congratulations!\n");	
 	}
-
 	
+	char response;
 
-	while (!(response == 10)) // until loop in c - the ! stops the while loop from continuing to the next iteration 
+	response = 'Y';
+	response = 'y';
+	response = 'N';
+	response = 'n';
+
+	while (score == 10) // until loop in c - the ! stops the while loop from continuing to the next iteration 
 	{
 		printf("Do you want to test your luck?\n");
 		printf("Y/N: \n");
 		scanf("%c", &response);
-			if (response == 'Y')
+			if (response == 'y' || response == 'Y')
 			{
-				toupper(response);
-				printf("GOOD LUCK!!!\n");
-				
+				printf("Good luck!!\n");
+				break;
 			}
-			else
-				toupper(response);
-				printf("Goodbye, Friend!\n")
+			else 
+			{
+				printf("Thanks for playing!!");
+			}
 	}
 
 	return (0);
